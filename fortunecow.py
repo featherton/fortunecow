@@ -8,6 +8,19 @@ cowsaypath = shutil.which("cowsay")
 lolcatpath = shutil.which("lolcat")
 fortunepath = shutil.which("fortune")
 
+def custfort(lol=True):
+    newfort = input("...")
+    if newfort.strip() == "":
+            pass
+    else:
+        os.system("clear")
+        if lol == True:
+            os.system("cowsay " + '"' + newfort + '" | lolcat')
+        else:
+            os.system("cowsay " + '"' + newfort + '"')
+        custfort()
+ 
+
 # Check if cowsay, fortune, and lolcat are installed
 if cowsaypath != None and fortunepath != None:
     if lolcatpath != None:
@@ -16,7 +29,13 @@ if cowsaypath != None and fortunepath != None:
                 os.system("clear")
                 os.system("fortune | cowsay | lolcat")
                 print("\n\n\n")
-                input("...")
+                newfort = input("...")
+                if newfort.strip() == "":
+                    pass
+                else:
+                    os.system("clear")
+                    os.system("cowsay " + '"' + newfort + '" | lolcat')
+                    custfort()       
             except:
                 print("\nTerminated...")
                 break
@@ -26,7 +45,13 @@ if cowsaypath != None and fortunepath != None:
                 os.system("clear")
                 os.system("fortune | cowsay")
                 print("\n\n\n")
-                input("...")
+                newfort = input("...")
+                if newfort.strip() == "":
+                    pass
+                else:
+                    os.system("clear")
+                    os.system("cowsay " + '"' + newfort + '"')
+                    custfort(False)
             except:
                 print("\nTerminated...")
                 break
